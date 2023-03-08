@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="version" content="1.2"/>
+    <br>
+    <title>Destined Character Sheet</title>
+    <h2 style="text-align:center;">Destined Character Sheet</h2>
+    <br>
+</head>
+<body>
+<link href="https://getbootstrap.com/docs/4.3/dist/css/bootstrap.min.css"
+      rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+<!-- <div class="container"> -->
+<div class="row">
+    <div class="col-4">
+        <table class="table">
+            <tr>
+                <th>Characteristics</th>
+            </tr>
+            <tr>
+                <td>STR</td>
+                <td><label for="strScore"></label><input type="number" placeholder="0" id="strScore" min="0"></td>
+            </tr>
+            <tr>
+                <td>CON</td>
+                <td><label for="conScore"></label><input type="number" placeholder="0" id="conScore" min="0"></td>
+            </tr>
+            <tr>
+                <td>SIZ</td>
+                <td><label for="sizScore"></label><input type="number" placeholder="0" id="sizScore" min="0"></td>
+            </tr>
+            <tr>
+                <td>DEX</td>
+                <td><label for="dexScore"></label><input type="number" placeholder="0" id="dexScore" min="0"></td>
+            </tr>
+            <tr>
+                <td>INT</td>
+                <td><label for="intScore"></label><input type="number" placeholder="0" id="intScore" min="0"></td>
+            </tr>
+            <tr>
+                <td>POW</td>
+                <td><label for="powScore"></label><input type="number" placeholder="0" id="powScore" min="0"></td>
+            </tr>
+            <tr>
+                <td>CHA</td>
+                <td><label for="chaScore"></label><input type="number" placeholder="0" id="chaScore" min="0"></td>
+            </tr>
+            <tr>
+                <th>Attributes</th>
+            </tr>
+            <tr>
+                <td>Action Points</td>
+                <td><label for="actionPoints"></label><input type="number" placeholder="0" id="actionPoints"></td>
+            </tr>
+            <tr>
+                <td>Damage Mod</td>
+                <td><label for="damageMod"></label><input type="text" placeholder="0" id="damageMod"></td>
+            </tr>
+            <tr>
+                <td>Experience Mod</td>
+                <td><label for="expMod"></label><input type="number" placeholder="0" id="expMod"></td>
+            </tr>
+            <tr>
+                <td>Healing Rate</td>
+                <td><label for="healingRate"></label><input type="number" placeholder="0" id="healingRate"></td>
+            </tr>
+            <tr>
+                <td>Initiative Mod</td>
+                <td><label for="iniMod"></label><input type="number" placeholder="0" id="iniMod"></td>
+            </tr>
+            <tr>
+                <td>Movement Rate & Types</td>
+                <td><label for="movRate"></label><input type="number" placeholder="0" id="movRate"></td>
+            </tr>
+            <tr>
+                <td>Luck Points</td>
+                <td><label for="luckPoints"></label><input type="number" placeholder="0" id="luckPoints"></td>
+            </tr>
+            <tr>
+                <td>Power Points</td>
+                <td><label for="powerPoints"></label><input type="number" placeholder="0" id="powerPoints"></td>
+            </tr>
+            <tr>
+                <td>Power Points Recovery/hour</td>
+                <td><label for="powerPointsRec"></label><input type="number" placeholder="0" id="powerPointsRec"></td>
+            </tr>
+    </div>
+    <table class="table">
+        <tr>
+            <button onclick="calcAttributes()">Calculate the Attributes</button>
+        </tr>
+
+        <tr>
+            <th>Character Info</th>
+        </tr>
+        <tr>
+            <td>Player</td>
+            <td><label for="playerName"></label><input type="text" id="playerName"></td>
+        </tr>
+        <tr>
+            <td>Hero Name</td>
+            <td><label for="heroName"></label><input type="text" id="heroName"></td>
+        </tr>
+        <tr>
+            <td>Secret Identity</td>
+            <td><label for="secretIdentity"></label><input type="text" id="secretIdentity"></td>
+        </tr>
+        <tr>
+            <td>Origin</td>
+            <td><label for="origin"></label><input type="text" id="origin"></td>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td><label for="charAge"></label><input type="text" id="charAge"></td>
+        </tr>
+        <tr>
+            <td>Culture</td>
+            <td><label for="culture"></label><input type="text" id="culture"></td>
+        </tr>
+        <tr>
+            <td>Career</td>
+            <td><label for="career"></label><input type="text" id="career"></td>
+        </tr>
+        <table class="table">
+            <tr>
+                <th>Passions</th>
+                <th>%</th>
+            </tr>
+            <tr>
+                <td><label for="passionName1"></label><input type="text" id="passionName1"></td>
+                <td><label for="passionValue1"></label><input type="number" placeholder="0" id="passionValue1"></td>
+            </tr>
+            <tr>
+                <td><label for="passionName2"></label><input type="text" id="passionName2"></td>
+                <td><label for="passionValue2"></label><input type="number" placeholder="0" id="passionValue2"></td>
+            </tr>
+            <tr>
+                <td><label for="passionName3"></label><input type="text" id="passionName3"></td>
+                <td><label for="passionValue3"></label><input type="number" placeholder="0" id="passionValue3"></td>
+            </tr>
+            <tr>
+                <td><label for="passionName4"></label><input type="text" id="passionName4"></td>
+                <td><label for="passionValue4"></label><input type="number" placeholder="0" id="passionValue4"></td>
+            </tr>
+            <tr>
+                <td><label for="passionName5"></label><input type="text" id="passionName5"></td>
+                <td><label for="passionValue5"></label><input type="number" placeholder="0" id="passionValue5"></td>
+            </tr>
+        </table>
+        <table class="table">
+            <tr>
+                <th>Languages</th>
+                <th>%</th>
+            </tr>
+            <tr>
+                <td>Native Language (starting from 40%)</td>
+                <td><label for="languageValue1"></label><input type="number" placeholder="0" id="languageValue1"></td>
+            </tr>
+            <tr>
+                <td><label for="languageName2"></label><input type="text" id="languageName2"></td>
+                <td><label for="languageValue2"></label><input type="number" placeholder="0" id="languageValue2"></td>
+            </tr>
+            <tr>
+                <td><label for="languageName3"></label><input type="text" id="languageName3"></td>
+                <td><label for="languageValue3"></label><input type="number" placeholder="0" id="languageValue3"></td>
+            </tr>
+            <tr>
+                <td><label for="languageName4"></label><input type="text" id="languageName4"></td>
+                <td><label for="languageValue4"></label><input type="number" placeholder="0" id="languageValue4"></td>
+            </tr>
+        </table>
+        <table class="table">
+            <tr>
+                <button onclick="calcLanguages()">Calculate the Languages %</button>
+            </tr>
+        </table>
+        <table class="table">
+            <tr>
+                <th>Combat Styles</th>
+            </tr>
+            <tr>
+                <td>Name, Weapons, Traits</td>
+                <td>%</td>
+            </tr>
+            <tr>
+                <td><label for="combatStyle1"></label><input type="text" id="combatStyle1"></td>
+                <td><label for="combatStyleValue1"></label><input type="number" placeholder="0" id="combatStyleValue1">
+                </td>
+            </tr>
+            <tr>
+                <td><label for="combatStyle2"></label><input type="text" id="combatStyle2"></td>
+                <td><label for="combatStyleValue2"></label><input type="number" placeholder="0" id="combatStyleValue2">
+                </td>
+            </tr>
+            <tr>
+                <td><label for="combatStyle3"></label><input type="text" id="combatStyle3"></td>
+                <td><label for="combatStyleValue3"></label><input type="number" placeholder="0" id="combatStyleValue3">
+                </td>
+            </tr>
+        </table>
+        <table class="table">
+            <tr>
+                <button onclick="calcCombatStyles()">Calculate the Combat Styles %</button>
+            </tr>
+        </table>
+        <table class="table">
+            <tr>
+                <th>Hit Locations</th>
+            </tr>
+            <tr>
+                <td>19-20 Head</td>
+            </tr>
+            <tr>
+                <td>AP</td>
+                <td>HP</td>
+            </tr>
+            <tr>
+                <td><label for="locationAP1"></label><input type="number" id="locationAP1"></td>
+                <td><label for="locationHP1"></label><input type="number" id="locationHP1"></td>
+            </tr>
+            <tr>
+                <td>13-15 R. Arm</td>
+            </tr>
+            <tr>
+                <td>AP</td>
+                <td>HP</td>
+            </tr>
+            <tr>
+                <td><label for="locationAP2"></label><input type="number" id="locationAP2"></td>
+                <td><label for="locationHP2"></label><input type="number" id="locationHP2"></td>
+            </tr>
+            <tr>
+                <td>10-12 Chest</td>
+            </tr>
+            <tr>
+                <td>AP</td>
+                <td>HP</td>
+            </tr>
+            <tr>
+                <td><label for="locationAP3"></label><input type="number" id="locationAP3"></td>
+                <td><label for="locationHP3"></label><input type="number" id="locationHP3"></td>
+            </tr>
+            <tr>
+                <td>16-18 L. Arm</td>
+            </tr>
+            <tr>
+                <td>AP</td>
+                <td>HP</td>
+            </tr>
+            <tr>
+                <td><label for="locationAP4"></label><input type="number" id="locationAP4"></td>
+                <td><label for="locationHP4"></label><input type="number" id="locationHP4"></td>
+            </tr>
+            <tr>
+                <td>7-9 Abdomen</td>
+            </tr>
+            <tr>
+                <td>AP</td>
+                <td>HP</td>
+            </tr>
+            <tr>
+                <td><label for="locationAP5"></label><input type="number" id="locationAP5"></td>
+                <td><label for="locationHP5"></label><input type="number" id="locationHP5"></td>
+            </tr>
+            <tr>
+                <td>1-3 R. Leg</td>
+            </tr>
+            <tr>
+                <td>AP</td>
+                <td>HP</td>
+            </tr>
+            <tr>
+                <td><label for="locationAP6"></label><input type="number" id="locationAP6"></td>
+                <td><label for="locationHP6"></label><input type="number" id="locationHP6"></td>
+            </tr>
+            <tr>
+                <td>4-6 L. Leg</td>
+            </tr>
+            <tr>
+                <td>AP</td>
+                <td>HP</td>
+            </tr>
+            <tr>
+                <td><label for="locationAP7"></label><input type="number" id="locationAP7"></td>
+                <td><label for="locationHP7"></label><input type="number" id="locationHP7"></td>
+            </tr>
+        </table>
+        <table class="table">
+            <tr>
+                <button onclick="calcHitLocationHP()">Calculate the Hit Locations</button>
+            </tr>
+        </table>
+</div>
+<div class="row">
+    <div class="col-4">
+        <br><br>
+        <table class="table">
+            <tr>
+                <th>Standard Skills</th>
+                <th>Base %</th>
+                <th>Modified %</th>
+                <th>Total %</th>
+            </tr>
+            <tr>
+                <td>Athletics (STR+DEX)</td>
+                <td><label for="athleticsBaseScore"></label><input type="number" placeholder="0"
+                                                                   id="athleticsBaseScore"></td>
+                <td><label for="athleticsModScore"></label><input type="number" placeholder="0" id="athleticsModScore">
+                </td>
+                <td><label for="athleticsTotalScore"></label><input type="number" placeholder="0"
+                                                                    id="athleticsTotalScore"></td>
+            </tr>
+            <tr>
+                <td>Brawn (STR+SIZ)</td>
+                <td><label for="brawnBaseScore"></label><input type="number" placeholder="0" id="brawnBaseScore"></td>
+                <td><label for="brawnModScore"></label><input type="number" placeholder="0" id="brawnModScore"></td>
+                <td><label for="brawnTotalScore"></label><input type="number" placeholder="0" id="brawnTotalScore"></td>
+            </tr>
+            <tr>
+                <td>Conceal (DEX+POW)</td>
+                <td><label for="concealBaseScore"></label><input type="number" placeholder="0" id="concealBaseScore">
+                </td>
+                <td><label for="concealModScore"></label><input type="number" placeholder="0" id="concealModScore"></td>
+                <td><label for="concealTotalScore"></label><input type="number" placeholder="0" id="concealTotalScore">
+                </td>
+            </tr>
+            <tr>
+                <td>Deceit (INT+CHA)</td>
+                <td><label for="deceitBaseScore"></label><input type="number" placeholder="0" id="deceitBaseScore"></td>
+                <td><label for="deceitModScore"></label><input type="number" placeholder="0" id="deceitModScore"></td>
+                <td><label for="deceitTotalScore"></label><input type="number" placeholder="0" id="deceitTotalScore">
+                </td>
+            </tr>
+            <tr>
+                <td>Drive (DEX+POW)</td>
+                <td><label for="driveBaseScore"></label><input type="number" placeholder="0" id="driveBaseScore"></td>
+                <td><label for="driveModScore"></label><input type="number" placeholder="0" id="driveModScore"></td>
+                <td><label for="driveTotalScore"></label><input type="number" placeholder="0" id="driveTotalScore"></td>
+            </tr>
+            <tr>
+                <td>Endurance (CON x2)</td>
+                <td><label for="enduranceBaseScore"></label><input type="number" placeholder="0"
+                                                                   id="enduranceBaseScore"></td>
+                <td><label for="enduranceModScore"></label><input type="number" placeholder="0" id="enduranceModScore">
+                </td>
+                <td><label for="enduranceTotalScore"></label><input type="number" placeholder="0"
+                                                                    id="enduranceTotalScore"></td>
+            </tr>
+            <tr>
+                <td>Evade (DEX x2)</td>
+                <td><label for="evadeBaseScore"></label><input type="number" placeholder="0" id="evadeBaseScore"></td>
+                <td><label for="evadeModScore"></label><input type="number" placeholder="0" id="evadeModScore"></td>
+                <td><label for="evadeTotalScore"></label><input type="number" placeholder="0" id="evadeTotalScore"></td>
+            </tr>
+            <tr>
+                <td>First Aid (INT+DEX)</td>
+                <td><label for="firstAidBaseScore"></label><input type="number" placeholder="0" id="firstAidBaseScore">
+                </td>
+                <td><label for="firstAidModScore"></label><input type="number" placeholder="0" id="firstAidModScore">
+                </td>
+                <td><label for="firstAidTotalScore"></label><input type="number" placeholder="0"
+                                                                   id="firstAidTotalScore"></td>
+            </tr>
+            <tr>
+                <td>Influence (CHA x2)</td>
+                <td><label for="influenceBaseScore"></label><input type="number" placeholder="0"
+                                                                   id="influenceBaseScore"></td>
+                <td><label for="influenceModScore"></label><input type="number" placeholder="0" id="influenceModScore">
+                </td>
+                <td><label for="influenceTotalScore"></label><input type="number" placeholder="0"
+                                                                    id="influenceTotalScore"></td>
+            </tr>
+            <tr>
+                <td>Insight (INT+POW)</td>
+                <td><label for="insightBaseScore"></label><input type="number" placeholder="0" id="insightBaseScore">
+                </td>
+                <td><label for="insightModScore"></label><input type="number" placeholder="0" id="insightModScore"></td>
+                <td><label for="insightTotalScore"></label><input type="number" placeholder="0" id="insightTotalScore">
+                </td>
+            </tr>
+            <tr>
+                <td>Perception (INT+POW)</td>
+                <td><label for="perceptionBaseScore"></label><input type="number" placeholder="0"
+                                                                    id="perceptionBaseScore"></td>
+                <td><label for="perceptionModScore"></label><input type="number" placeholder="0"
+                                                                   id="perceptionModScore"></td>
+                <td><label for="perceptionTotalScore"></label><input type="number" placeholder="0"
+                                                                     id="perceptionTotalScore"></td>
+            </tr>
+            <tr>
+                <td>Research (INT+POW)</td>
+                <td><label for="researchBaseScore"></label><input type="number" placeholder="0" id="researchBaseScore">
+                </td>
+                <td><label for="researchModScore"></label><input type="number" placeholder="0" id="researchModScore">
+                </td>
+                <td><label for="researchTotalScore"></label><input type="number" placeholder="0"
+                                                                   id="researchTotalScore"></td>
+            </tr>
+            <tr>
+                <td>Stealth (DEX+INT)</td>
+                <td><label for="stealthBaseScore"></label><input type="number" placeholder="0" id="stealthBaseScore">
+                </td>
+                <td><label for="stealthModScore"></label><input type="number" placeholder="0" id="stealthModScore"></td>
+                <td><label for="stealthTotalScore"></label><input type="number" placeholder="0" id="stealthTotalScore">
+                </td>
+            </tr>
+            <tr>
+                <td>Streetwise (INT+CHA)</td>
+                <td><input type="number" placeholder="0" id="streetwiseBaseScore"></td>
+                <td><input type="number" placeholder="0" id="streetwiseModScore"></td>
+                <td><input type="number" placeholder="0" id="streetwiseTotalScore"></td>
+            </tr>
+            <tr>
+                <td>Unarmed (STR+DEX)</td>
+                <td><input type="number" placeholder="0" id="unarmedBaseScore"></td>
+                <td><input type="number" placeholder="0" id="unarmedModScore"></td>
+                <td><input type="number" placeholder="0" id="unarmedTotalScore"></td>
+            </tr>
+            <tr>
+                <td>Willpower (POW x2)</td>
+                <td><input type="number" placeholder="0" id="willpowerBaseScore"></td>
+                <td><input type="number" placeholder="0" id="willpowerModScore"></td>
+                <td><input type="number" placeholder="0" id="willpowerTotalScore"></td>
+            </tr>
+        </table>
+        <table class="table">
+            <tr>
+                <button onclick="calcBaseStandardSkills()">Calculate the base Standard Skills %</button>
+            </tr>
+        </table>
+        <table class="table">
+            <tr>
+                <button onclick="calcModStandardSkills()">Calculate the mod. Standard Skills %</button>
+            </tr>
+        </table>
+        <table class="table">
+            <tr>
+                <button onclick="calcTotalStandardSkills()">Calculate the total Standard Skills %</button>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <th>Available Skill Points (Culture, Career, Bonus)</th>
+            </tr>
+            <tr>
+                <td><input type="number" placeholder="0" id="totalSkillPointsAvailable"></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <th>Remaining Skill Points (Culture, Career, Bonus)</th>
+            </tr>
+            <tr>
+                <td><input type="number" placeholder="0" id="totalSkillPointsRemaining"></td>
+            </tr>
+        </table>
+        <br><br><br>
+        <table class="table">
+            <tr>
+                <th>Professional Skills</th>
+                <th>Base %</th>
+                <th>Mod %</th>
+                <th>Total %</th>
+            </tr>
+            <tr>
+                <td><input type="text" id="profSkillName1"></td>
+                <td><input type="number" placeholder="0" id="profSkillBaseValue1"></td>
+                <td><input type="number" placeholder="0" id="profSkillModValue1"></td>
+                <td><input type="number" placeholder="0" id="profSkillTotalValue1"></td>
+            </tr>
+            <tr>
+                <td><input type="text" id="profSkillName2"></td>
+                <td><input type="number" placeholder="0" id="profSkillBaseValue2"></td>
+                <td><input type="number" placeholder="0" id="profSkillModValue2"></td>
+                <td><input type="number" placeholder="0" id="profSkillTotalValue2"></td>
+            </tr>
+            <tr>
+                <td><input type="text" id="profSkillName3"></td>
+                <td><input type="number" placeholder="0" id="profSkillBaseValue3"></td>
+                <td><input type="number" placeholder="0" id="profSkillModValue3"></td>
+                <td><input type="number" placeholder="0" id="profSkillTotalValue3"></td>
+            </tr>
+            <tr>
+                <td><input type="text" id="profSkillName4"></td>
+                <td><input type="number" placeholder="0" id="profSkillBaseValue4"></td>
+                <td><input type="number" placeholder="0" id="profSkillModValue4"></td>
+                <td><input type="number" placeholder="0" id="profSkillTotalValue4"></td>
+            </tr>
+            <tr>
+                <td><input type="text" id="profSkillName5"></td>
+                <td><input type="number" placeholder="0" id="profSkillBaseValue5"></td>
+                <td><input type="number" placeholder="0" id="profSkillModValue5"></td>
+                <td><input type="number" placeholder="0" id="profSkillTotalValue5"></td>
+            </tr>
+            <tr>
+                <td><input type="text" id="profSkillName6"></td>
+                <td><input type="number" placeholder="0" id="profSkillBaseValue6"></td>
+                <td><input type="number" placeholder="0" id="profSkillModValue6"></td>
+                <td><input type="number" placeholder="0" id="profSkillTotalValue6"></td>
+            </tr>
+            <tr>
+                <td><input type="text" id="profSkillName7"></td>
+                <td><input type="number" placeholder="0" id="profSkillBaseValue7"></td>
+                <td><input type="number" placeholder="0" id="profSkillModValue7"></td>
+                <td><input type="number" placeholder="0" id="profSkillTotalValue7"></td>
+            </tr>
+        </table>
+        <table class="table">
+            <tr>
+                <button onclick="calcModProfessionalSkills()">Calculate the mod. Prof. Skills %</button>
+            </tr>
+        </table>
+        <table class="table">
+            <tr>
+                <button onclick="calcTotalProfessionalSkills()">Calculate the total Prof. Skills %</button>
+            </tr>
+        </table>
+        <br><br> <br>
+        <div class="row">
+            <div class="col-4">
+                <table class="table">
+                    <tr>
+                        <th>Super Powers</th>
+                    </tr>
+                    <tr>
+                        <td>Core Power</td>
+                        <td>Boost</td>
+                        <td>Limits</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="corePowerName1"></td>
+                        <td><input type="text" id="boostName1"></td>
+                        <td><input type="text" id="limitName1"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="corePowerName2"></td>
+                        <td><input type="text" id="boostName2"></td>
+                        <td><input type="text" id="limitName2"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="corePowerName3"></td>
+                        <td><input type="text" id="boostName3"></td>
+                        <td><input type="text" id="limitName3"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="corePowerName4"></td>
+                        <td><input type="text" id="boostName4"></td>
+                        <td><input type="text" id="limitName4"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="corePowerName5"></td>
+                        <td><input type="text" id="boostName5"></td>
+                        <td><input type="text" id="limitName5"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="corePowerName6"></td>
+                        <td><input type="text" id="boostName6"></td>
+                        <td><input type="text" id="limitName6"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="corePowerName7"></td>
+                        <td><input type="text" id="boostName7"></td>
+                        <td><input type="text" id="limitName7"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="corePowerName8"></td>
+                        <td><input type="text" id="boostName8"></td>
+                        <td><input type="text" id="limitName8"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="corePowerName9"></td>
+                        <td><input type="text" id="boostName9"></td>
+                        <td><input type="text" id="limitName9"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="corePowerName10"></td>
+                        <td><input type="text" id="boostName10"></td>
+                        <td><input type="text" id="limitName10"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="corePowerName11"></td>
+                        <td><input type="text" id="boostName11"></td>
+                        <td><input type="text" id="limitName11"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="corePowerName12"></td>
+                        <td><input type="text" id="boostName12"></td>
+                        <td><input type="text" id="limitName12"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="corePowerName13"></td>
+                        <td><input type="text" id="boostName13"></td>
+                        <td><input type="text" id="limitName13"></td>
+                    </tr>
+                </table>
+                <table class="table">
+                    <tr>
+                        <th>Allotments</th>
+                    </tr>
+                    <tr>
+                        <td>Allotment</td>
+                        <td>Rating</td>
+                        <td>Slots</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="allotmentName1"></td>
+                        <td><input type="text" id="allotmentRating1"></td>
+                        <td><input type="text" id="allotmentSlot1"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="allotmentName2"></td>
+                        <td><input type="text" id="allotmentRating2"></td>
+                        <td><input type="text" id="allotmentSlot2"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="allotmentName3"></td>
+                        <td><input type="text" id="allotmentRating3"></td>
+                        <td><input type="text" id="allotmentSlot3"></td>
+                    </tr>
+                </table>
+                <br>
+                <table class="table">
+                    <tr>
+                        <th>Protection Worn</th>
+                        <th></th>
+                        <th>Bulk</th>
+                    </tr>
+                    <tr>
+                        <td>Head</td>
+                        <td><input type="text" id="headProtectionName"></td>
+                        <td><input type="number" id="headProtectionBulk"></td>
+                    </tr>
+                    <tr>
+                        <td>Chest</td>
+                        <td><input type="text" id="chestProtectionName"></td>
+                        <td><input type="number" id="chestProtectionBulk"></td>
+                    </tr>
+                    <tr>
+                        <td>Abdomen</td>
+                        <td><input type="text" id="abdomenProtectionName"></td>
+                        <td><input type="number" id="abdomenProtectionBulk"></td>
+                    </tr>
+                    <tr>
+                        <td>Arms</td>
+                        <td><input type="text" id="armsProtectionName"></td>
+                        <td><input type="number" id="armsProtectionBulk"></td>
+                    </tr>
+                    <tr>
+                        <td>Legs</td>
+                        <td><input type="text" id="legsProtectionName"></td>
+                        <td><input type="number" id="legsProtectionBulk"></td>
+                    </tr>
+                    <tr>
+                        <td>Initiative Penalty</td>
+                        <td></td>
+                        <td><input type="number" id="iniPenalty"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="./script.js"></script>
+</body>
+</html>
