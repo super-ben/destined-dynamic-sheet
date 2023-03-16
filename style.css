@@ -1,18 +1,40 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center;
+  margin: 50px 0 30px;
+}
+
+h2 {
+  color: black;
+  font-weight: bold;
+}
+
 .table-container {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
 .table {
-  width: 50%;
-  margin-bottom: 20px;
+  width: 100%;
+  margin-bottom: 30px;
 }
 
 td {
   width: 50%;
   background-color: hsl(120, 30%, 80%);
+  font-weight: 500;
+  font-size: 14px;
+  color: #333;
 }
-
 
 table {
   border-collapse: collapse;
@@ -20,26 +42,27 @@ table {
 }
 
 tr {
-  height: 40px;
+  height: 50px;
   background-color: hsl(120, 50%, 50%);
 }
 
-th, td {
+th,
+td {
   text-align: left;
   padding: 10px;
   border: 1px solid #ddd;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 16px;
 }
 
 th {
   background-color: #4CAF50;
   color: white;
-  font-size: 16px;
   font-weight: 600;
 }
 
-tr:nth-child(even){background-color: #f2f2f2}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
 
 tr:hover {
   background-color: #ddd;
@@ -51,10 +74,34 @@ button {
   border-radius: 3px;
   font-size: 14px;
   font-weight: 500;
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 button:hover {
   background-color: #4CAF50;
   color: white;
 }
+
+/*Note that I added a margin-right and margin-bottom property to the button selector to create some space between the buttons. You can adjust these values as needed.
+
+
+button {
+  padding: 10px 20px;
+  border: 1px solid #4CAF50;
+  border-radius: 3px;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #4CAF50;
+  color: white;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #fff;
+  color: #4CAF50;
+}
+*/
 

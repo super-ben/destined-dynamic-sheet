@@ -1,56 +1,50 @@
 "use strict";
 
+// Get element by ID helper function
+const numGetById = (id) => Number(document.getElementById(id).value);
+
 // single functions to calculate multiple characteristics
 const calcDexInt = (id) => {
   document.getElementById(id).value =
-    Number(document.getElementById("dexScore").value) +
-    Number(document.getElementById("intScore").value);
+    numGetById("dexScore") + numGetById("intScore");
 };
 
 const calcDexPow = (id) => {
   document.getElementById(id).value =
-    Number(document.getElementById("dexScore").value) +
-    Number(document.getElementById("powScore").value);
+    numGetById("dexScore") + numGetById("powScore");
 };
 
 const calcIntCha = (id) => {
   document.getElementById(id).value =
-    Number(document.getElementById("intScore").value) +
-    Number(document.getElementById("chaScore").value);
+    numGetById("intScore") + numGetById("chaScore");
 };
 
 const calcIntPow = (id) => {
   document.getElementById(id).value =
-    Number(document.getElementById("intScore").value) +
-    Number(document.getElementById("powScore").value);
+    numGetById("intScore") + numGetById("powScore");
 };
 
 const calcStrDex = (id) => {
   document.getElementById(id).value =
-    Number(document.getElementById("strScore").value) +
-    Number(document.getElementById("dexScore").value);
+    numGetById("strScore") + numGetById("dexScore");
+};
+
+const calcStrSiz = (id) => {
+  document.getElementById(id).value =
+    numGetById("strScore") + numGetById("sizScore");
 };
 
 // multiplication functions
 function calcMultiplied(base, attribute) {
-  document.getElementById(base).value =
-    Number(document.getElementById(attribute).value) * 2;
+  document.getElementById(base).value = numGetById(attribute) * 2;
 }
 
-const calcStrSiz = (id) => {
-  document.getElementById(id).value =
-    Number(document.getElementById("strScore").value) +
-    Number(document.getElementById("sizScore").value);
-};
-
 // single function to calculate modified percentages for standard skills
-const calcSkillMod = (mod) => Number(document.getElementById(mod).value);
+const calcSkillMod = (mod) => numGetById(mod);
 
 // single function to calculate the standard skill totals
 function calcSkillTotals(total, base, mod) {
-  document.getElementById(total).value =
-    Number(document.getElementById(base).value) +
-    Number(document.getElementById(mod).value);
+  document.getElementById(total).value = numGetById(base) + numGetById(mod);
 }
 
 // calculate the base standard skills
@@ -152,9 +146,7 @@ const calcProfSkillMod = (mod) => Number(document.getElementById(mod).value);
 
 // single function calculate the total professional skill values
 function calcProfSkillTotals(total, base, mod) {
-  document.getElementById(total).value =
-    Number(document.getElementById(base).value) +
-    Number(document.getElementById(mod).value);
+  document.getElementById(total).value = numGetById(base) + numGetById(mod);
 }
 
 // calculate the modified professional skills
@@ -229,18 +221,15 @@ const calcCombatStyles = () => {
   );
   totalSkillPointsRemaining.value =
     totalSkillPointsRemaining.value -
-    (Number(document.getElementById("combatStyleValue1").value) +
-      Number(document.getElementById("combatStyleValue2").value) +
-      Number(document.getElementById("combatStyleValue3").value));
+    (numGetById("combatStyleValue1") +
+      numGetById("combatStyleValue2") +
+      numGetById("combatStyleValue3"));
 };
 
-// calculate the initiative bonus
 const calcIniBonus = () => {
   const iniMod = document.getElementById("iniMod");
   iniMod.value = Math.floor(
-    (Number(document.getElementById("dexScore").value) +
-      Number(document.getElementById("intScore").value)) /
-      2
+    (numGetById("dexScore") + numGetById("intScore")) / 2
   );
 };
 
@@ -300,10 +289,7 @@ function calcLuckHealing(map, source, dest) {
 }
 
 const hLocation = () => {
-  return (
-    Number(document.getElementById("conScore").value) +
-    Number(document.getElementById("sizScore").value)
-  );
+  return numGetById("conScore") + numGetById("sizScore");
 };
 
 const calcLegHitLocationHP = () => {
